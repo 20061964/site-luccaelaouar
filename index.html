@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucca El Aouar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* animação do foguete */
+    .foguete {
+      width: 40px;
+      vertical-align: middle;
+      margin-left: 10px;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .foguete.decolar {
+      transform: translateY(-40px) rotate(-20deg);
+      filter: drop-shadow(0 0 8px #00aaff);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fundo-estrelas"></div>
+  <header class="top-header">
+    <div class="logo-area">
+      <img src="logo.png" alt="Lucca El Aouar">
+    </div>
+
+    <nav class="menu-area">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="contratar.html">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="btn-area">
+      <a href="contratar.html" target="_blank" class="btn-contrate">
+        CONTRATE LUCCA EL AOUAR →
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="marketing-digital.jpg" alt="">
+    <h1>Consultor de Marketing Digital</h1>
+    <p>Branding, Marketing e Estratégia Digital — ajudando marcas a crescer com propósito e autenticidade.</p>
+
+    <!-- ÍCONE + NOME ROTATIVO -->
+    <div class="rotating-images">
+      <img id="icone-rotativo" src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google" />
+      <span id="nome-rotativo">Google</span>
+    </div>
+
+    <a class="trabalho" href="#servicos">VER SERVIÇOS</a>
+  </section>
+
+  <!-- script da animação de ícones -->
+  <script>
+    const dados = [
+      { img: "https://cdn-icons-png.flaticon.com/512/281/281764.png", nome: "Google" },
+      { img: "https://cdn-icons-png.flaticon.com/512/6033/6033716.png", nome: "Meta" },
+      { img: "https://cdn-icons-png.flaticon.com/512/1384/1384063.png", nome: "Instagram" },
+    ];
+
+    let index = 0;
+    const imgTag = document.getElementById("icone-rotativo");
+    const nomeTag = document.getElementById("nome-rotativo");
+
+    function trocarImagem() {
+      imgTag.style.opacity = 0;
+      nomeTag.style.opacity = 0;
+
+      setTimeout(() => {
+        imgTag.src = dados[index].img;
+        nomeTag.textContent = dados[index].nome;
+        imgTag.style.opacity = 1;
+        nomeTag.style.opacity = 1;
+        index = (index + 1) % dados.length;
+      }, 300);
+    }
+
+    setInterval(trocarImagem, 2000);
+  </script>
+
+  <section id="sobre">
+    <div class="sobre-container">
+      <div class="sobre-texto">
+        <h2>Sobre Mim</h2>
+        <p>
+          Sou <strong>Lucca Gabriel</strong>, consultor de marketing digital e gerente de redes sociais com mais de 5 anos de experiência. <br><br>
+          Já ajudei diversas marcas a aprimorar seu SEO,(Search Engine Optimization) e Inbound, utilizando técnicas e estratégias para aumentar sua presença nas redes sociais e desenvolver a criação de conteúdo digital. 
+          Minha metodologia tem fundamento em <strong>análise, diagnóstico, planejamento e gestão</strong> — sempre voltadas para resultado e crescimento real.
+        </p>
+
+        <div class="sobre-habilidades">
+          <a href="Reunião.html">ANGEDAR UM REUNIÃO</a>
+        </div>
+      </div>
+
+      <div class="sobre-card">
+        <div class="borda-animada"></div>
+        <div class="card-conteudo">
+          <img src="logo.png1.png" alt="">
+          <h3>Lucca Gabriel</h3>
+          <p>Transformo estratégias em resultados, ajudando marcas a crescer com propósito, autenticidade e impacto digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="container-servicos">
+      <h2>Serviços</h2>
+      <p class="descricao-servicos">
+        Estratégias inteligentes e criativas para fortalecer a presença digital da sua marca e gerar resultados reais.
+      </p>
+
+      <div class="cards-servicos">
+        <div class="card-servico">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Branding e Identidade Visual">
+          <h3>Branding e Identidade Visual</h3>
+          <p>Criação e fortalecimento da imagem da marca, transmitindo propósito e autenticidade em cada detalhe.</p>
+        </div>
+
+        <div class="card-servico">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Estratégia de Marketing Digital">
+          <h3>Estratégia de Marketing Digital</h3>
+          <p>Planejamento e execução de campanhas estratégicas para atrair, engajar e converter seu público-alvo.</p>
+        </div>
+
+        <div class="card-servico">
+          <img src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png" alt="Design e Posicionamento de Marca">
+          <h3>Design e Posicionamento de Marca</h3>
+          <p>Desenvolvimento visual que comunica valor, modernidade e diferencia sua marca no mercado.</p>
+        </div>
+
+        <div class="card-servico">
+          <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png" alt="Consultoria e Gestão de Imagem">
+          <h3>Consultoria e Gestão de Imagem</h3>
+          <p>Acompanhamento estratégico para posicionar sua marca com autoridade e relevância nas redes sociais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div id="testimonial-user"></div>
+    <div class="testimonials-container">
+      <h2 class="testimonials-title">O que dizem sobre meu trabalho</h2>
+      <p class="testimonials-subtitle">
+        Feedbacks de clientes que confiaram em mim para transformar seus projetos digitais.
+      </p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>“Profissional com visão estratégica e execução impecável. As campanhas elevaram o posicionamento da marca e geraram resultados consistentes.”</p>
+          </div>
+          <div class="testimonial-user">
+            <img src="LOGO.PNG4.jpg" alt="Cliente 1">
+            <div><h4>Thaylanne</h4><span>CEO - Floratta</span></div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>“O trabalho superou as expectativas. As campanhas foram bem otimizadas e o retorno veio rápido. Profissional que entende de resultado e sabe o que faz.”</p>
+          </div>
+          <div class="testimonial-user">
+            <img src="logo.png3.jpg" alt="Cliente 2">
+            <div><h4>Pedro duarte</h4><span>Empreendedor</span></div>
+          </div> 
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>“O resultado foi surreal! As estratégias no Insta e Google Ads deram um up enorme na minha visibilidade. Comunicação leve, entrega rápida e um trabalho super profissional!”</p>
+          </div>
+          <div class="testimonial-user">
+            <img src="logo.png2.jpg" alt="Cliente 3">
+            <div><h4>Naiara</h4><span>Empreendedorar</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato-hero">
+  <div class="contato-hero-content">
+    <h2>
+      <span class="titulo-animado">Pronto para transformar sua marca?</span>
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/8095/8095155.png"
+        alt="Foguete"
+        class="foguete"
+        id="foguete"
+      />
+    </h2>
+    <p>Entre em contato e vamos criar algo extraordinário juntos.</p>
+
+    <div class="contato-hero-buttons">
+      <a href="https://wa.me/5562994506132" target="_blank" class="btn-hero">Falar no WhatsApp</a>
+      <a href="mailto:contato@seudominio.com" class="btn-outline">Enviar e-mail</a>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+  const foguete = document.getElementById('foguete');
+  const container = document.querySelector('.foguete-container');
+
+  setInterval(() => {
+    foguete.classList.add('decolar');
+    container.classList.add('decolar');
+
+    setTimeout(() => {
+      foguete.classList.remove('decolar');
+      container.classList.remove('decolar');
+    }, 1500);
+  }, 4500);
+</script>
+
+
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>Lucca El Aouar</h2>
+        <p>Meu negócio é fazer o seu crescer.</p>
+        <a href="contratar.html" class="btn-footer">CONTRATE NOSSO SERVIÇO</a>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="https://wa.me/5562994506132">(62) 99450-6132</a></li>
+            <li><a href="mailto:lucca@email.com">lucca@email.com</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="gestao.html">Gestão de Redes</a></li>
+            <li><a href="Assessoria.html">Assessoria</a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Conteúdos</h4>
+          <ul>
+            <li><a href="#">Portfólio</a></li>
+            <li><a href="#testimonial-user">Depoimentos</a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Lucca El Aouar — Todos os direitos reservados.</p>
+      <div class="socials">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script>
+  const fundo = document.querySelector('.fundo-estrelas');
+  const totalEstrelas = 120;
+
+  for (let i = 0; i < totalEstrelas; i++) {
+    const estrela = document.createElement('div');
+    estrela.classList.add('estrela');
+
+    estrela.style.top = Math.random() * 100 + '%';
+    estrela.style.left = Math.random() * 200 + '%';
+
+    // Tamanho aleatório — agora entre 2 e 5 px
+    const tamanho = Math.random() * 3 + 2;
+    estrela.style.width = tamanho + 'px';
+    estrela.style.height = tamanho + 'px';
+
+    estrela.style.animationDelay = (Math.random() * 5) + 's';
+    fundo.appendChild(estrela);
+  }
+</script>
+
+</body>
+</html>

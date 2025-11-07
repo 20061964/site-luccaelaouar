@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agende sua Reunião</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="reuniao-page">
+  <section class="hero">
+    <div class="content">
+      <div class="text">
+        <h1>Construa sua <span>presença digital</span><br>com propósito e impacto</h1>
+        <p>Criamos estratégias que elevam marcas e conectam pessoas.  
+        Vamos juntos transformar ideias em resultados reais.</p>
+      </div>
+
+      <div class="form-card">
+        <h2>Agende sua <span>Reunião</span></h2>
+        <p>Preencha o formulário abaixo e nossa equipe entrará em contato com você.</p>
+
+        <form id="agendarForm">
+          <input type="text" id="nome" placeholder="Seu nome completo" required>
+          <input type="email" id="email" placeholder="Seu melhor e-mail" required>
+          <input type="tel" id="whatsapp" placeholder="WhatsApp para contato" required>
+          <select id="motivo" required>
+            <option value="">Selecione o motivo</option>
+            <option value="Consultoria">Consultoria</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Tráfego Pago">Tráfego Pago</option>
+            <option value="Tráfego Orgânico">Tráfego Orgânico</option>
+            <option value="Gestão de Projetor">Gestão de Projetor</option>
+          </select>
+          <button type="submit">Agendar Agora</button>
+        </form>
+
+        <small>
+          Ao continuar, você concorda com nossos 
+          <a id="abrirTermos">termos</a> e 
+          <a id="abrirPolitica">política de privacidade</a>.
+        </small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Termos -->
+  <div class="info-popup" id="popupTermos" style="display:none;">
+    <h3>Termos de Uso</h3>
+    <p>Ao utilizar este site e agendar uma reunião, você concorda que as informações fornecidas
+    são verdadeiras e serão utilizadas apenas para fins de contato profissional e atendimento
+    relacionado aos nossos serviços de marketing digital.</p>
+    <span class="close-popup" onclick="fecharPopup('popupTermos')">Fechar</span>
+  </div>
+
+  <!-- Modal Política -->
+  <div class="info-popup" id="popupPolitica" style="display:none;">
+    <h3>Política de Privacidade</h3>
+    <p>Seus dados são coletados exclusivamente para fins de agendamento e comunicação.
+    Não compartilhamos suas informações com terceiros. Você pode solicitar a exclusão dos seus
+    dados a qualquer momento entrando em contato com nossa equipe.</p>
+    <span class="close-popup" onclick="fecharPopup('popupPolitica')">Fechar</span>
+  </div>
+
+  <script>
+    // Envio do formulário via WhatsApp
+    document.getElementById("agendarForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const whatsapp = document.getElementById("whatsapp").value;
+      const motivo = document.getElementById("motivo").value;
+
+      const mensagem = `👋 Olá! Quero agendar uma reunião.%0A
+*Nome:* ${nome}%0A
+*E-mail:* ${email}%0A
+*WhatsApp:* ${whatsapp}%0A
+*Motivo:* ${motivo}`;
+
+      const numero = "5562994506132";
+      const url = `https://wa.me/${numero}?text=${mensagem}`;
+      window.open(url, "_blank");
+    });
+
+    // Abrir e fechar os pop-ups
+    document.getElementById("abrirTermos").onclick = () => abrirPopup("popupTermos");
+    document.getElementById("abrirPolitica").onclick = () => abrirPopup("popupPolitica");
+
+    function abrirPopup(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    function fecharPopup(id) {
+      document.getElementById(id).style.display = "none";
+    }
+  </script>
+</body>
+</html>
